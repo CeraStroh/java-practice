@@ -6,6 +6,15 @@ public class ArrayFunctions {
       return -1;
    }
    
+   public static int linearSearch(String s, String target) {
+      StringBuilder result = new StringBuilder();
+      String[] splitArray = s.split("\\s+");
+      for (int i=0; i<splitArray.length; i++) {
+         if (target.equals(splitArray[i])) return i;
+      }
+      return -1;
+   }
+   
    public static int sum(int[] data) {
       int total = 0;
       for (int d : data) {
@@ -46,8 +55,9 @@ public class ArrayFunctions {
       }
       System.out.println("Total sum of data: " + sum(data));
       System.out.println("Max of data: " + max(data));
-      System.out.println("Min of data: " + min(data));*/
+      System.out.println("Min of data: " + min(data));
       display(data);
-      System.out.print("hi");
+      System.out.print("hi");*/
+      System.out.println("Search for That: " + linearSearch("This and this and that and this", "That"));
    }
 }
