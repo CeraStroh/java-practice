@@ -74,6 +74,22 @@ public class ArrayFunctions {
       }
    }
    
+   public static int binarySearch(int[] data, int target) { //worst case is O(log n)
+      int left = 0;
+      int right = data.length - 1;
+      while (left <= right) {
+         int mid = (left + right) / 2;
+         if (target == data[mid]) {
+            return mid;
+         } else if (target < data[mid]) {
+            right = mid - 1;
+         } else {
+            left = mid + 1;
+         }
+      }
+      return -1;
+   }
+   
    public static boolean isSorted(int[] data) {
       for (int i=1; i<data.length-1; i++) {
          if (data[i] > data[i+1]) return false;
@@ -107,17 +123,24 @@ public class ArrayFunctions {
       System.out.println("Min of data: " + min(data));
       display(data);
       System.out.print("hi");
-      System.out.println("Search for That: " + linearSearch("This and this and that and this", "That"));*/
-      int[] data2 = new int[15];
-      
-      /*System.out.println("data 2: " + isSorted(data2));
+      System.out.println("Search for That: " + linearSearch("This and this and that and this", "That"));
+      int[] data2 = new int[100];
+      randomFill(data2, 1000);
+      System.out.println("data 2: " + isSorted(data2));*/
       int[] data3 = {1, 1, 4, 5, 8, 90};
-      System.out.println("data 3: " + isSorted(data3));*/
-      randomFill(data2, 100);
-      // insertionSort(data2);
-      selectionSort(data2);
+      /*System.out.println("data 3: " + isSorted(data3));
+      System.out.println("Before insertionSort()");
       for (int d : data2) {
          System.out.print(d + " ");
       }
+      System.out.println("");
+      System.out.println("After insertionSort()");
+      insertionSort(data2);
+      //selectionSort(data2);
+      for (int d : data2) {
+         System.out.print(d + " ");
+      }
+      System.out.println("");*/
+      System.out.println("binarySearch for 90: " + binarySearch(data3, 90));
    }
 }
